@@ -1,6 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
 
+// Config
+import { PORT, DB_URI } from "./config/evn.js";
+
 // Here we import routes folder
 import productRoute from "./routes/product.route.js";
 
@@ -10,9 +13,6 @@ import connectToDatabase from "./database/mongodb.js";
 
 
 const app = express();
-const PORT = 6500;
-const DB_URI = "mongodb+srv://sonakjha369:Sonak%40%23%24123%2A%2A45@backenddb.gmutkuq.mongodb.net/Node-API?appName=BackendDB";
-
 
 
 // Middleware
@@ -44,8 +44,8 @@ const startServer = async () => {
         await connectToDatabase(DB_URI);
 
         // Step 2: Start server only after DB connects
-        app.listen(PORT, () => {
-            console.log(`🚀 Server running on http://localhost:${PORT}`);
+        app.listen(PORT || 5000, () => {
+            console.log(`🚀 Server running on http://localhost:${PORT || 5000}`);
         })
 
     }catch(err){
