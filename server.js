@@ -34,8 +34,7 @@ app.get("/", (req, res) => {
 // ✅ Start server only after DB connects
 const startServer = async () => {
   try {
-    await connectToDatabase(DB_URI);
-
+    await connectToDatabase();
     app.listen(PORT || 5000, () => {
       console.log(`🚀 Server running on http://localhost:${PORT || 5000}`);
     });
