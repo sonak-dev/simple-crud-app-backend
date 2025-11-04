@@ -9,6 +9,7 @@ import productRoute from "./routes/product.route.js";
 // ✅ Database connection
 import connectToDatabase from "./database/mongodb.js";
 
+
 const app = express();
 
 
