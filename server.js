@@ -35,7 +35,6 @@ app.get("/", (req, res) => {
 const startServer = async () => {
   try {
     await connectToDatabase(DB_URI);
-    console.log("✅ MongoDB connected successfully!");
 
     app.listen(PORT || 5000, () => {
       console.log(`🚀 Server running on http://localhost:${PORT || 5000}`);
