@@ -5,7 +5,7 @@
   "license": "ISC",
   "author": "Sonak Jha",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "serve": "nodemon server.js",
     "start": "node server.js"
