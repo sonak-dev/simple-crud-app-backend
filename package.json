@@ -1,0 +1,19 @@
+{
+  "name": "01_crud_operation",
+  "version": "1.0.0",
+  "description": "Learning CRUD opeations",
+  "license": "ISC",
+  "author": "Sonak Jha",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2",
+    "nodemon": "^3.1.10"
+  }
+}
