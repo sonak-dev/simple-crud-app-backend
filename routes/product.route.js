@@ -1,5 +1,6 @@
 // Importing Router from express for defining routes
 import { Router } from "express";
+import { authorize } from "../middleware/auth.middleware.js";
 
 // Importing controller functions that handle logic for each route
 import { 
@@ -26,7 +27,7 @@ productRoute.get(`/`, getProducts);
 productRoute.get(`/:id`, getProduct);
 
 // POST / → Create a new product entry
-productRoute.post(`/`, createProduct);
+productRoute.post(`/`, authorize, createProduct);
 
 // PUT /:id → Update product details by ID
 productRoute.put(`/:id`, updateProduct);

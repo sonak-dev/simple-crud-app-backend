@@ -5,6 +5,10 @@ import { PORT } from "./config/env.js";
 
 // ✅ Routes
 import productRoute from "./routes/product.route.js";
+import userRoute from "./routes/user.route.js";
+
+// ✅ Middleware
+import logRequest from "./middleware/product.middleware.js";
 
 // ✅ Database connection
 import connectToDatabase from "./database/mongodb.js";
@@ -14,8 +18,10 @@ const app = express();
 
 
 // ✅ Middleware (Modern way — no need for body-parser)
+app.use(logRequest);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 
 // ✅ Test route
@@ -40,7 +46,8 @@ const startServer = async () => {
     await connectToDatabase();
 
     // ✅ Register routes only after DB connection
-    app.use("/api/products", productRoute);
+    app.use(`/api/auth`, userRoute);
+    app.use(`/api/products`, productRoute);
 
     app.listen(PORT || 5000, () => {
       console.log(`🚀 Server running on http://localhost:${PORT || 5000}`);
